@@ -1,4 +1,7 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class TaskStream {
 
     /**
@@ -8,7 +11,7 @@ public class TaskStream {
      * @return сумма по всем книгам
      */
     public static double task1(List<Book> books) {
-        return 0.0;
+        return books.stream().mapToDouble(book -> book.getPrice()).sum();
     }
 
     /**
@@ -18,9 +21,9 @@ public class TaskStream {
      * @return количество уникальных авторов
      */
     public static long task2(List<Book> books) {
-        return 0;
+        return books.stream().map(x -> x.getAuthor()).distinct().count();
+//      return books.stream().collect(Collectors.counting());
     }
-
     /**
      * Map в ключе название книги, в значении все отзывы по этой книге.
      *
@@ -28,8 +31,9 @@ public class TaskStream {
      * @return ожидаемый мап
      */
     public static Map<String, List<String>> task3(List<Book> books) {
-        return Collections.emptyMap();
+        return books.stream().collect(Collectors.toMap(book -> book.getTitle(), Book::getReviews));
     }
+
 
     /**
      * Map в ключе название книги, в значении все отзывы по этой книге.
@@ -38,9 +42,9 @@ public class TaskStream {
      * @param books - список книг
      * @return ожидаемый мап
      */
-    public static Map<String, List<String>> task4(List<Book> books) {
-        return Collections.emptyMap();
-    }
+//    public static Map<String, List<String>> task4(List<Book> books) {
+//        return Collections.emptyMap();
+//    }
 
     /**
      * Список всех отзывов по всем книгам
@@ -48,9 +52,9 @@ public class TaskStream {
      * @param books - список книг
      * @return список отзывов
      */
-    public static List<String> task5(List<Book> books) {
-        return Collections.emptyList();
-    }
+//    public static List<String> task5(List<Book> books) {
+//        return Collections.emptyList();
+//    }
 
     /**
      * Определить среднюю стоимость книги (не считая сумму книг)
@@ -58,9 +62,9 @@ public class TaskStream {
      * @param books - список книг
      * @return среднюю стоимость книги
      */
-    public static double task6(List<Book> books) {
-        return 0.;
-    }
+//    public static double task6(List<Book> books) {
+//        return 0.0;
+//    }
 
     /**
      * У всех книг в поле Автор есть слово "Автор"
@@ -68,9 +72,9 @@ public class TaskStream {
      * @param books - список книг
      * @return результат
      */
-    public static boolean task7(List<Book> books) {
-        return false;
-    }
+//    public static boolean task7(List<Book> books) {
+//        return false;
+//    }
 
     /**
      * Преобразовать List в Set. где Set это все названия книг. достаточно 3
@@ -78,9 +82,9 @@ public class TaskStream {
      * @param books - список книг
      * @return не больше 3 названий книг
      */
-    public static Set<String> task8(List<Book> books) {
-        return Collections.emptySet();
-    }
+//    public static Set<String> task8(List<Book> books) {
+//        return Collections.emptySet();
+//    }
 
     /**
      * Найти книги, у которых в названии четная цифра, но цена меньше 100
@@ -88,9 +92,9 @@ public class TaskStream {
      * @param books - список книг
      * @return
      */
-    public static List<Book> task9(List<Book> books) {
-        return Collections.emptyList();
-    }
+//    public static List<Book> task9(List<Book> books) {
+//        return Collections.emptyList();
+//    }
 
     /**
      * поместить книга в Map по двум ключам: "OK" и "Not Ok". где второе когда цена у книги больше 50
@@ -98,9 +102,9 @@ public class TaskStream {
      * @param books - список книг
      * @return Map с двумя ключами
      */
-    public static Map<String, List<Book>> task10(List<Book> books) {
-        return Collections.emptyMap();
-    }
+//    public static Map<String, List<Book>> task10(List<Book> books) {
+//        return Collections.emptyMap();
+//    }
 
     /**
      * Получить список книг, у которых хотя бы один отзыв содержит слово "рекомендую".
@@ -108,9 +112,9 @@ public class TaskStream {
      * @param books - список книг
      * @return список книг с интересными отзывами
      */
-    public static List<Book> task11(List<Book> books) {
-        return Collections.emptyList();
-    }
+//    public static List<Book> task11(List<Book> books) {
+//        return Collections.emptyList();
+//    }
 
     /**
      * Найти самую дешевую книгу.
@@ -118,7 +122,7 @@ public class TaskStream {
      * @param books - список книг
      * @return самая дешевая книга
      */
-    public static Book task12(List<Book> books) throws IllegalArgumentException {
-        return null;
-    }
+//    public static Book task12(List<Book> books) throws IllegalArgumentException {
+//        return null;
+//    }
 }

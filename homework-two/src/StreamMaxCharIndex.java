@@ -33,13 +33,13 @@ public class StreamMaxCharIndex {
 //        }
 
         Character character = null;
-        Integer maxRepeat = 0;
-        for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
-            if (maxRepeat < entry.getValue()) {
-                maxRepeat = entry.getValue();
-                character = entry.getKey();
-            }
-        }
+//        Integer maxRepeat = 0;
+//        for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
+//            if (maxRepeat < entry.getValue()) {
+//                maxRepeat = entry.getValue();
+//                character = entry.getKey();
+//            }
+//        }
         return string.indexOf(character);
     }
 }
