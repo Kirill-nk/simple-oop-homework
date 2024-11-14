@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Function;
 
 public class Main {
 
@@ -22,6 +23,16 @@ public class Main {
     }
 
     public static void main(String[] args) {
+//        String str = "Kirill";
+//        System.out.println(str);
+//        Function<String, Integer> length = new Function<String, Integer>() {
+//            @Override
+//            public Integer apply(String text) {
+//                return text.length();
+//            }
+//        };
+//        calculate(length, str);
+
 
         //Тесты и вызов методов с заданием
         //Задание 1
@@ -34,10 +45,10 @@ public class Main {
         task3();
 
         //Задание 4
-//        task4();
+        task4();
 
         //Задание 5
-//        task5();
+        task5();
 
         //Задание 6
 //        task6();
@@ -59,6 +70,12 @@ public class Main {
 
         //Задание 12
 //        task12();
+    }
+
+    private static <T, R> void calculate(Function<T, R> func, T text) {
+        R apply = func.apply(text);
+        System.out.println("calculate method: " + apply);
+        System.out.println("-".repeat(30));
     }
 
     private static void task1() {
@@ -98,7 +115,7 @@ public class Main {
         //тест
         Assertion.assertEquals(expectedMap, actualMap);
     }
-/*
+
     private static void task4() {
         //ожидаемый результат
         Map<String, List<String>> expectedMap = new HashMap<>();
@@ -123,6 +140,7 @@ public class Main {
         Assertion.assertEquals(expectedList, actualList);
     }
 
+    /*
     private static void task6() {
         //ожидаемый результат
         int expected = 49;
@@ -202,6 +220,5 @@ public class Main {
         //тест
         Assertion.assertEquals(expectedBook, actualBook);
     }
-
  */
 }
