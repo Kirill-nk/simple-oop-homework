@@ -46,9 +46,12 @@ public class TaskStream {
      * @return ожидаемый мап
      */
     public static Map<String, List<String>> task4(List<Book> books) {
+//        return books.stream()
+//                .filter(book -> book.getReviews() != null && !book.getReviews().isEmpty())
+//                .collect(Collectors.toMap(book -> book.getTitle(), book -> book.getReviews()));
         return books.stream()
-                .filter(book -> book.getReviews() != null && !book.getReviews().isEmpty())
-                .collect(Collectors.toMap(book -> book.getTitle(), book -> book.getReviews()));
+                .filter(book -> !book.getReviews().isEmpty())
+                .collect(Collectors.toMap(book -> book.getTitle(), Book::getReviews));
     }
 
     /**
@@ -58,7 +61,6 @@ public class TaskStream {
      * @return список отзывов
      */
     public static List<String> task5(List<Book> books) {
-//        return Collections.emptyList().books.stream()
         return books.stream()
                 .map(new Function<Book, List<String>>() {
                     @Override
@@ -72,7 +74,7 @@ public class TaskStream {
                     }
                 })
                 .collect(Collectors.toList());
-
+    }
 
         /**
          * Определить среднюю стоимость книги (не считая сумму книг)
@@ -80,9 +82,12 @@ public class TaskStream {
          * @param books - список книг
          * @return среднюю стоимость книги
          */
-//    public static double task6(List<Book> books) {
-//        return 0.0;
-//    }
+    public static double task6(List<Book> books) {
+        return books.stream()
+                .mapToDouble(book -> book.getPrice())
+                .average().orElseThrow();
+    }
+    //Функциональные интерфейсы - посмотреть
 
         /**
          * У всех книг в поле Автор есть слово "Автор"
@@ -90,9 +95,9 @@ public class TaskStream {
          * @param books - список книг
          * @return результат
          */
-//    public static boolean task7(List<Book> books) {
-//        return false;
-//    }
+    public static boolean task7(List<Book> books) {
+        return false;
+    }
 
         /**
          * Преобразовать List в Set. где Set это все названия книг. достаточно 3

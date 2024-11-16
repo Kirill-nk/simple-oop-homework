@@ -51,7 +51,7 @@ public class Main {
         task5();
 
         //Задание 6
-//        task6();
+        task6();
 
         //Задание 7
 //        task7();
@@ -140,7 +140,7 @@ public class Main {
         Assertion.assertEquals(expectedList, actualList);
     }
 
-    /*
+
     private static void task6() {
         //ожидаемый результат
         int expected = 49;
@@ -163,7 +163,7 @@ public class Main {
         //тест
         Assertion.assertEquals(expected, actual);
     }
-
+/*
     private static void task8() {
         //ожидаемый результат
         boolean expected = true;
